@@ -18,6 +18,14 @@
 
 4. 以 `testng.xml` 为入口运行你的测试用例.
 
+## 已做工作:
+
+1. 重写 `TestListenerAdapter` 类, 在 `onFinish` 中提取测试结果
+
+2. 编写 `Connect` 类, 实现与 `x-utest` 的握手与结果上传
+
+3. 在 `onFinish` 类中添加上传测试结果操作
+
 ## TODOs:
 
 1. 更好的引用方式 (jar包)
