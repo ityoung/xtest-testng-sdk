@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!-- 该xml实现调用ＸListener监听器，将测试结果上传至　ｘ-utest　系统 -->
+<suite name="suite1" >
+    <test name="test" preserver-order="true">
+        <classes >
+            <class name="com.testdemo.DemoTest" />
+        </classes>
+        <!-- 添加XListener监听器，XListener类在com.x-utest.XListener中 -->
+        <listeners>
+            <listener class-name="com.xutest.XListener" />
+        </listeners>
+    </test>
+</suite>
