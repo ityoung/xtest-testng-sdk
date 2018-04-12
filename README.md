@@ -2,6 +2,14 @@
 
 将 **testng** 测试结果发送到 **ｘ-utest** 系统的类
 
+## 依赖:
+
+- fastjson
+
+- junit
+
+- testng
+
 ## 使用方法：
 
 1. 复制 `com.xutest` 到你的项目中;
