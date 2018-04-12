@@ -6,8 +6,6 @@
 
 - fastjson
 
-- junit
-
 - testng
 
 ## 使用方法：
