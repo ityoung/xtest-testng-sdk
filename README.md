@@ -40,6 +40,14 @@
 
 **欢迎懂java的朋友改进代码与项目**
 
+## 相关链接:
+
+- [x-utest Docker-compose](https://github.com/x-utest/xtest-docker-compose)
+
+- [TestNG Doc](http://testng.org/doc/)
+
+- [fastjson Github](https://github.com/alibaba/fastjson)
+
 ## Author
 
 ityoung@foxmail.com
