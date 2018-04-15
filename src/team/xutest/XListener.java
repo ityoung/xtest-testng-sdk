@@ -1,11 +1,11 @@
-package com.xutest;
+package team.xutest;
+
 
 import org.testng.TestListenerAdapter;
 import org.testng.ITestResult;
 import org.testng.ITestContext;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONArray;
-import com.xutest.Connect;
 
 import java.io.IOException;
 

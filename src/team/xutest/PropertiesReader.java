@@ -1,13 +1,9 @@
-package com.xutest;
+package team.xutest;
 
 
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map.Entry;
 import java.util.Properties;
-import java.util.Set;
 
 public class PropertiesReader {
 

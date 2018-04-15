@@ -1,4 +1,5 @@
-package com.xutest;
+package team.xutest;
+
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -11,7 +12,6 @@ import java.util.Properties;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import com.xutest.PropertiesReader;
 
 public class Connect {
     // 与 x-utest 建立连接

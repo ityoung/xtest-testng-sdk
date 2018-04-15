@@ -4,11 +4,11 @@
 <suite name="suite1" >
     <!-- 添加XListener监听器，XListener类在com.x-utest.XListener中 -->
     <listeners>
-        <listener class-name="com.xutest.XListener" />
+        <listener class-name="team.xutest.XListener" />
     </listeners>
     <test name="test">
         <classes >
-            <class name="com.test.TestDemo" />
+            <class name="team.test.TestDemo" />
         </classes>
     </test>
 </suite>
