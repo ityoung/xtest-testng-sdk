@@ -1,12 +1,17 @@
 package com.xutest;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Properties;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+
+import com.xutest.PropertiesReader;
 
 public class Connect {
     // 与 x-utest 建立连接
@@ -14,12 +19,17 @@ public class Connect {
     String base_url;
     String app_id;
     String app_key;
+    String pro_id;
     String token;
 
-    Connect(String url, String id, String key){
-        base_url = url;
-        app_id = id;
-        app_key = key;
+    // 构造函数, 属性值
+    Connect() throws IOException {
+        PropertiesReader pr = new PropertiesReader();
+        Properties prop = pr.getProperties();
+        base_url = (String) prop.get("base_url");
+        app_id = (String) prop.get("app_id");
+        app_key = (String) prop.get("app_key");
+        pro_id = (String) prop.get("project_id");
     }
 
     // x-utest 认证, 获取 token
@@ -50,12 +60,13 @@ public class Connect {
         in.close();
 
         //打印结果
-        String jsonStr=response.toString();
+        String jsonStr = response.toString();
 
         //转换成JSON数据并查找token
-        JSONObject jarr= JSON.parseObject(jsonStr);//JSON.parseArray(jsonStr);
+        JSONObject jarr = JSON.parseObject(jsonStr);//JSON.parseArray(jsonStr);
         token = jarr.getJSONObject("data").getString("token");
     }
+
     // 发送测试结果到 x-utest
     public String post_test_result(JSONObject test_data) throws Exception {
         String url = base_url + "/testdata/create-test-data/?token=" + token;
@@ -84,7 +95,7 @@ public class Connect {
         in.close();
 
         //返回结果
-        String jsonStr=response.toString();
+        String jsonStr = response.toString();
         return jsonStr;
     }
 }

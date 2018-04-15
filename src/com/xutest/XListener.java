@@ -7,6 +7,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONArray;
 import com.xutest.Connect;
 
+import java.io.IOException;
+
 
 public class XListener extends TestListenerAdapter {
     long start_time;
@@ -30,10 +32,10 @@ public class XListener extends TestListenerAdapter {
         JSONArray details = new JSONArray();
         for (ITestResult FailedTests : tr.getFailedTests().getAllResults()) {
             JSONObject detail = new JSONObject();
-            String test_class = FailedTests.getTestClass().getName().toString();
+            String test_class = FailedTests.getTestClass().getName();
             detail.put("status", "failures");
             detail.put("note", FailedTests.getThrowable().toString());
-            detail.put("test_case", FailedTests.getName().toString());
+            detail.put("test_case", FailedTests.getName());
             detail.put("explain", test_class);
             details.add(detail);
         }
@@ -55,19 +57,17 @@ public class XListener extends TestListenerAdapter {
         //TODO: you need to write your own function to get your project's version.
         test_result.put("pro_version", "0.0.0.0");
 
-        //TODO: these should call from configure file.
-        //change these config to your own x-utest.
-        test_result.put("pro_id", "5a7fb0f047de9d5cf3d13a45");
-        String base_url = "http://192.168.0.29:8011";
-        String app_id = "376223a60d7811e883dc448a5b61a7f0";
-        String app_key = "cf71ab7e937620de5767ecc08780a69b";
-
         // send to x-utest system
-        Connect http = new Connect(base_url, app_id, app_key);
         try {
-            http.auth();
-            http.post_test_result(test_result);
-        } catch (Exception e) {
+            Connect xutest = new Connect();
+            test_result.put("pro_id", xutest.pro_id);
+            try {
+                xutest.auth();
+                xutest.post_test_result(test_result);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
