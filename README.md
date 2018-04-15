@@ -50,7 +50,11 @@
 
 - [TestNG Doc](http://testng.org/doc/)
 
+- [TestNG jar package download](http://mvnrepository.com/artifact/org.testng/testng)
+
 - [fastjson Github](https://github.com/alibaba/fastjson)
+
+- [fastjson jar package download](http://repo1.maven.org/maven2/com/alibaba/fastjson/)
 
 ## Author
 
